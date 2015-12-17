@@ -8,8 +8,8 @@ Check Website status is a library for .NET that permits you check essential aspe
 
 ## Install
 * Add GammapartnersWebsiteStatus.dll as reference on your web application.
-* Add CheckWebsiteStatusHandler.ashx on your web application.
-* Create a new file called "status.config".
+* Add CheckWebsiteStatusHandler.ashx on the root path.
+* Create a new file called "status.config" on the root path.
 
 ## Getting Started
 * Install Check Website Status .NET
@@ -17,3 +17,34 @@ Check Website status is a library for .NET that permits you check essential aspe
 
 ## status.config file
 Here you define your configuration to check database, pages and paths.
+
+The main structure of status.config file is as follow:
+```xml
+<?xml version="1.0"?>
+
+<configuration>
+  <queries>
+    <!--Add your queries here-->
+    <!--<query value="" connectionStringName="" isEntityModel="" onlyCheckConnection="" />-->
+  </queries>
+  <pages>
+    <!--Add your pages here-->
+    <!--<page requestUrl="" response="" containsResponse="" timeout=""/>-->
+  </pages>
+  <paths>
+    <!--Add your paths here-->
+    <!--<path filePath="" deleteTestFile="" />-->
+  </paths>
+</configuration>
+```
+
+### "query" tag attributes
+  * connectionStringName (**required attribute**): Name of the connection string defined on your web.config file
+  * isEntityModel:
+  * value:
+  * onlyCheckConnection:
+
+### "page" tag attributes
+
+
+### "path" tag attributes
