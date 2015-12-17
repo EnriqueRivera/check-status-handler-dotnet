@@ -56,7 +56,7 @@ The main structure of status.config file is as follow:
 
 ## Examples
 
-The value of the next query will be executed because *onlyCheckConnection* attributes is false and it will use the *SiteSqlServer* connection defined on web.config file. You can note that the specified connection string is no for Entity Framework. The query will fail if product quantity is less or equal than 5000 products.
+The value of the next query will be executed because *onlyCheckConnection* attributes is false and it will use the *SiteSqlServer* connection defined on web.config file. Note that the specified connection string is not for Entity Framework. The query will fail if product quantity is less or equal than 5000 products.
 ```xml
 <query value="SELECT CASE WHEN COUNT(*) &gt; 5000 THEN 1 ELSE 100/0 END AS result FROM Products" connectionStringName="SiteSqlServer" isEntityModel="false" onlyCheckConnection="false" />
 ```
