@@ -1,0 +1,4 @@
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\bin\Release\GammapartnersWebsiteStatus.dll
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\bin\Release\GammapartnersWebsiteStatus.pdb
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Release\GammapartnersWebsiteStatus.dll
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Release\GammapartnersWebsiteStatus.pdb

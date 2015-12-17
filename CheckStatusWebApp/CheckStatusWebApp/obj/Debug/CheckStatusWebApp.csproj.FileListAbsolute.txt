@@ -1,0 +1,14 @@
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\bin\CheckStatusWebApp.dll
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\bin\CheckStatusWebApp.pdb
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.csprojResolveAssemblyReference.cache
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.dll
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.pdb
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersSiteStatus.dll
+c:\users\enrique rivera\documents\visual studio 2010\Projects\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersSiteStatus.pdb
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\bin\CheckStatusWebApp.dll
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\bin\CheckStatusWebApp.pdb
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.csprojResolveAssemblyReference.cache
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.dll
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.pdb
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersWebsiteStatus.dll
+C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersWebsiteStatus.pdb
