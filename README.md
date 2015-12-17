@@ -6,6 +6,8 @@ Check Website status is a library for .NET that permits you check essential aspe
 * **Page status** - Monitor the state of pages on your website.
 * **Write permissions on a specific Path** - Define paths and check if you are able to write on them.
 
+You can use this library as a complement of a monitoring service like Monitis.
+
 ## Install
 * Add GammapartnersWebsiteStatus.dll as reference on your web application.
 * Add CheckWebsiteStatusHandler.ashx on the root path.
