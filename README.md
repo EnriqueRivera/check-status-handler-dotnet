@@ -1,10 +1,10 @@
 # Check Website Status .NET
 
-Check Website status is a library for .NET that permits you check essential aspects in your website, such as:
+Check Website status is a library for .NET that permits you to check essential aspects in your website, such as:
 
-* **Database connection** - Execute queries and check the status of connections that you have defined on your web.config file.
-* **Page status** - Monitor the state of pages on your website.
-* **Write permissions on a specific Path** - Define paths and check if you are able to write on them.
+* **Database connection** - Executes queries and checks the status of connections that you have defined on your web.config file.
+* **Page status** - Monitors the state of pages on your website.
+* **Write permissions on a specific Path** - Defines paths and check if you are able to write on them.
 
 You can use this library as a complement of a monitoring service like Monitis.
 
@@ -20,7 +20,7 @@ You can use this library as a complement of a monitoring service like Monitis.
 ## status.config file
 Here you define your configuration to check database, pages and paths.
 
-The main structure of status.config file is as follow:
+The main structure of status.config file is as follows:
 ```xml
 <?xml version="1.0"?>
 
@@ -42,19 +42,19 @@ The main structure of status.config file is as follow:
 
 ### *query* tag attributes
   * **connectionStringName** (**required attribute**) - Name of the connection string defined on your web.config file.
-  * **isEntityModel** (true/false) - Indicate if the connection is used by the Entity Framework. *False as default value*
+  * **isEntityModel** (true/false) - Indicates if the connection is used by the Entity Framework. *False as default value*
   * **value** - Query to execute. *"SELECT 1 AS A" as default value*
-  * **onlyCheckConnection** (true/false) - Indicate if only will be checked the connection. If this attribute is *false* the query will not executed. *False as default value*
+  * **onlyCheckConnection** (true/false) - Indicates if only the connection will be checked. If this attribute is *false* the query will not executed. *False as default value*
 
 ### *page* tag attributes
   * **requestUrl** (**required attribute**) - URL to perform the request.
-  * **response** - Indicate which value must or not be contained on the generated response by the request.
-  * **containsResponse** (**required when *response* attribute is used**) (true/false) - Indicate if response must or not contains the string indicated as response. *False as default value*
+  * **response** - Indicates which value must or must not be contained on the generated response by the request.
+  * **containsResponse** (**required when *response* attribute is used**) (true/false) - Indicate if response must or must not contain the string indicated as response. *False as default value*
   * **timeout** (true/false) - Time on milliseconds before the request times out. *10000 as default value*
 
 ### *path* tag attributes
-  * **filePath** (**required attribute**) - Directory on which will be created a test file in order to check write permissions.
-  * **deleteFile** (true/false) - Indicate if the created test file must or not be deleted after creation. *false as default value*
+  * **filePath** (**required attribute**) - Directory on which a test file will be created in order to check write permissions.
+  * **deleteFile** (true/false) - Indicates if the created test file must or must not be deleted after creation. *false as default value*
 
 ## Examples
 
