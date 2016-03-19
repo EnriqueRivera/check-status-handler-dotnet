@@ -12,3 +12,10 @@ C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\obj\
 C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.pdb
 C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersWebsiteStatus.dll
 C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersWebsiteStatus.pdb
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\bin\CheckStatusWebApp.dll
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\bin\CheckStatusWebApp.pdb
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersWebsiteStatus.dll
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\bin\GammapartnersWebsiteStatus.pdb
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.csprojResolveAssemblyReference.cache
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.dll
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\CheckStatusWebApp\obj\Debug\CheckStatusWebApp.pdb

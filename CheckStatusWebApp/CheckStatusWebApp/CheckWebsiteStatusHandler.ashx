@@ -15,6 +15,9 @@ public class CheckWebsiteStatusHandler : IHttpHandler
     public void ProcessRequest(HttpContext context)
     {
         context.Response.ContentType = "text/plain";
+        string response = string.Empty;
+        GammapartnersWebsiteStatus.WebsiteStatus statusPage = null;
+        bool error = true;
 
         try
         {
@@ -23,7 +26,7 @@ public class CheckWebsiteStatusHandler : IHttpHandler
                 string configFile = sr.ReadToEnd();
                 string errorMessageForQueries, errorMessageForPages, errorMessageForPaths;
                 
-                GammapartnersWebsiteStatus.WebsiteStatus statusPage = new GammapartnersWebsiteStatus.WebsiteStatus(configFile);
+                statusPage = new GammapartnersWebsiteStatus.WebsiteStatus(configFile);
                 
                 bool queriesStatus = statusPage.CheckQueriesStatus(out errorMessageForQueries);
                 bool pagesStatus = statusPage.CheckPagesStatus(out errorMessageForPages);
@@ -31,20 +34,28 @@ public class CheckWebsiteStatusHandler : IHttpHandler
 
                 if (queriesStatus && pagesStatus && pathsStatus)
                 {
-                    context.Response.Write("Everything is alright!");
+                    response = "Everything is alright!";
+                    error = false;
                 }
                 else
                 {
-                    context.Response.Write("Queries status: " + (queriesStatus ? "OK" : "Error\n" + errorMessageForQueries));
-                    context.Response.Write("\n\nPages status: " + (pagesStatus ? "OK" : "Error\n" + errorMessageForPages));
-                    context.Response.Write("\n\nPaths status: " + (pathsStatus ? "OK" : "Error\n" + errorMessageForPaths));
+                    response = "Queries status: " + (queriesStatus ? "OK" : "Error\n" + errorMessageForQueries)
+                                + "\n\nPages status: " + (pagesStatus ? "OK" : "Error\n" + errorMessageForPages)
+                                + "\n\nPaths status: " + (pathsStatus ? "OK" : "Error\n" + errorMessageForPaths);
                 }
             }
         }
         catch (Exception e)
         {
-            context.Response.Write("Error reading the cofig file: " + e.Message);
+            response = "Error reading the cofig file: " + e.Message;
         }
+
+        if (statusPage != null)
+        {
+            statusPage.WriteInLog(response, error);
+        }
+        
+        context.Response.Write(response);
     }
 
     public bool IsReusable

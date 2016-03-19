@@ -102,6 +102,30 @@ namespace GammapartnersWebsiteStatus
             }
         }
 
+        /// <summary>
+        /// Write in log the response
+        /// </summary>
+        /// <param name="response">string that will be written in response</param>
+        public void WriteInLog(string response, bool error)
+        {
+            try
+            {
+                XmlNode logNode = _xmlConfigFile.DocumentElement.SelectSingleNode("//configuration/log");
+
+                if (logNode != null)
+                {
+                    string writePath = GetAttribute(logNode, "filePath", true);
+                    if (!string.IsNullOrEmpty(writePath) && Directory.Exists(writePath))
+                    {
+                        string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_ StatusHandler" + (error ? "_Error" : "_Success") + ".txt";
+                        string fullPath = Path.Combine(writePath, fileName);
+                        File.WriteAllText(fullPath, response);
+                    }
+                }
+            }
+            catch (Exception){ }
+        }
+
         private bool CheckQueries(out string errorMessage)
         {
             string defaultQuery = "SELECT 1 AS A";
@@ -142,11 +166,11 @@ namespace GammapartnersWebsiteStatus
                     {
                         connection.Open();
 
-                        if (Convert.ToBoolean(onlyCheckConnection) == false)
+                        if (!Convert.ToBoolean(onlyCheckConnection))
                         {
                             using (SqlDataReader sqlDataReader = new SqlCommand(cmdText, connection).ExecuteReader())
                             {
-                                if (sqlDataReader.Read() == false)
+                                if (!sqlDataReader.Read())
                                 {
                                     throw new Exception("No data found executing the query");
                                 }
@@ -189,13 +213,13 @@ namespace GammapartnersWebsiteStatus
                         response = streamReader.ReadToEnd();
                     }
 
-                    if (string.IsNullOrEmpty(responseAttribute) == false)
+                    if (!string.IsNullOrEmpty(responseAttribute))
                     {
                         string containsResponse = GetAttribute(xmlNodeList[i], "containsResponse", true);
 
                         if (Convert.ToBoolean(containsResponse))
                         {
-                            if (response.Contains(responseAttribute) == false)
+                            if (!response.Contains(responseAttribute))
                             {
                                 throw new Exception("Invalid response");
                             }
@@ -227,7 +251,7 @@ namespace GammapartnersWebsiteStatus
                     string deleteTestFile = GetAttribute(xmlNodeList[i], "deleteTestFile", false);
                     
 
-                    if (Directory.Exists(filePath) == false)
+                    if (!Directory.Exists(filePath))
                     {
                         throw new Exception("The specified path does not exist");
                     }

@@ -2,3 +2,8 @@ C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteSt
 C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\bin\Debug\GammapartnersWebsiteStatus.pdb
 C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Debug\GammapartnersWebsiteStatus.dll
 C:\Users\Enrique Rivera\Documents\Gamma\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Debug\GammapartnersWebsiteStatus.pdb
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\GammapartnersWebsiteStatus\bin\Debug\GammapartnersWebsiteStatus.dll
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\GammapartnersWebsiteStatus\bin\Debug\GammapartnersWebsiteStatus.pdb
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Debug\GammapartnersWebsiteStatus.csprojResolveAssemblyReference.cache
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Debug\GammapartnersWebsiteStatus.dll
+C:\Users\Enrique Rivera\Documents\check-website-status-dotnet\CheckStatusWebApp\GammapartnersWebsiteStatus\obj\Debug\GammapartnersWebsiteStatus.pdb
