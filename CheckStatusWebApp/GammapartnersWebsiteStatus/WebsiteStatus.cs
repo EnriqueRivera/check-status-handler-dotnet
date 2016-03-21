@@ -115,6 +115,13 @@ namespace GammapartnersWebsiteStatus
                 if (logNode != null)
                 {
                     string writePath = GetAttribute(logNode, "filePath", true);
+                    string onlyShowErrors = GetAttribute(logNode, "onlyShowErrors", false);
+
+                    if (Convert.ToBoolean(onlyShowErrors) && !error)
+                    {
+                        return;
+                    }
+
                     if (!string.IsNullOrEmpty(writePath) && Directory.Exists(writePath))
                     {
                         string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_ StatusHandler" + (error ? "_Error" : "_Success") + ".txt";
