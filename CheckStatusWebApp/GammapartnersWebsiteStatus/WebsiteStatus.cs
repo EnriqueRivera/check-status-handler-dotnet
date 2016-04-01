@@ -16,6 +16,8 @@ using System.IO;
 using System.Net;
 using System.Xml;
 using System.Data.EntityClient;
+using System.Diagnostics;
+using System.Text;
 
 namespace GammapartnersWebsiteStatus
 {
@@ -124,7 +126,7 @@ namespace GammapartnersWebsiteStatus
 
                     if (!string.IsNullOrEmpty(writePath) && Directory.Exists(writePath))
                     {
-                        string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_ StatusHandler" + (error ? "_Error" : "_Success") + ".txt";
+                        string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_StatusHandler" + (error ? "_Error" : "_Success") + ".txt";
                         string fullPath = Path.Combine(writePath, fileName);
                         File.WriteAllText(fullPath, response);
                     }
@@ -202,22 +204,50 @@ namespace GammapartnersWebsiteStatus
             errorMessage = string.Empty;
             int timeout = 0;
             XmlNodeList xmlNodeList = _xmlConfigFile.DocumentElement.SelectNodes("//configuration/pages/page");
+            XmlNode pageLog = _xmlConfigFile.DocumentElement.SelectSingleNode("//configuration/pageLog");
+            string writePageLogPath = pageLog == null ? string.Empty : GetAttribute(pageLog, "filePath", true);
+            StringBuilder log = new StringBuilder();
 
             for (int i = 0; i < xmlNodeList.Count; ++i)
             {
+                Stopwatch stopwatch = null;
+
                 try
                 {
                     string requestUrl = GetAttribute(xmlNodeList[i], "requestUrl", true);
                     string timeoutAttribute = GetAttribute(xmlNodeList[i], "timeout", false);
                     string responseAttribute = GetAttribute(xmlNodeList[i], "response", false);
+                    string logTimeElapsed = GetAttribute(xmlNodeList[i], "logTimeElapsed", false);
 
                     WebRequest webRequest = WebRequest.Create(requestUrl);
                     webRequest.Timeout = int.TryParse(timeoutAttribute, out timeout) ? timeout : 10000;
 
-                    string response = string.Empty;
-                    using (StreamReader streamReader = new StreamReader(webRequest.GetResponse().GetResponseStream()))
+                    //Log time elapsed
+                    if (!string.IsNullOrEmpty(writePageLogPath) && Convert.ToBoolean(logTimeElapsed))
                     {
+                        stopwatch = new Stopwatch();
+                        stopwatch.Start();
+                    }
+
+                    string response = string.Empty;
+                    StreamReader streamReader = null;
+                    try
+                    {
+                        streamReader = new StreamReader(webRequest.GetResponse().GetResponseStream());
                         response = streamReader.ReadToEnd();
+                    }
+                    finally
+                    {
+                        if (streamReader != null) 
+                            streamReader.Dispose();
+
+                        if (stopwatch != null)
+                        {
+                            stopwatch.Stop();
+
+                            log.AppendFormat("Page #{0}\nRequestUrl: {1}\nElapsedTime: {2} ms\n-------------------------------------------\n", 
+                                                    i + 1, requestUrl, stopwatch.ElapsedMilliseconds);
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(responseAttribute))
@@ -243,6 +273,14 @@ namespace GammapartnersWebsiteStatus
                     errorMessage += string.IsNullOrEmpty(errorMessage) ? error : "\n" + error;
                 }
             }
+
+            if (log.Length > 0 && Directory.Exists(writePageLogPath))
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_PageLog.txt";
+                string fullPath = Path.Combine(writePageLogPath, fileName);
+                File.WriteAllText(fullPath, log.ToString());
+            }
+
             return string.IsNullOrEmpty(errorMessage);
         }
         
